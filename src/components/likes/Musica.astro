@@ -1,0 +1,219 @@
+---
+import Icon from "@components/Icon";
+const multimedia = [
+    {
+        type: "img",
+        src: "/img/guitarra3.png",
+    },
+    {
+        type: "video",
+        src: "/videos/guitarra1.mp4",
+    },
+    {
+        type: "img",
+        src: "/img/guitarra4.webp",
+    },
+    {
+        type: "video",
+        src: "/videos/guitarra2.mp4",
+    },
+    {
+        type: "img",
+        src: "/img/guitarra5.webp",
+    },
+    {
+        type: "img",
+        src: "/img/guitarra6.webp",
+    },
+    {
+        type: "img",
+        src: "/img/guitarra7.webp",
+    },
+];
+---
+
+<div class="pl-10 py-5">
+    <div class="flex gap-5 items-center py-5 px-10">
+        <div class="max-w-2xl">
+            <h5 class="text-white font-kodeBold text-2xl mb-5 relative">
+                {"`${"}<span class="text-purple-400">Musica</span>{"}`"}
+            </h5>
+            <div class="space-y-5 relative">
+                <p class="font-kodeBold text-muted text-balance">
+                    //La música no solo es mi pasión, es mi <span
+                        class="text-purple-400">forma de vida</span
+                    >.
+                </p>
+                <p class="text-white font-kodeBold w-[450px] text-balance">
+                    La música me acompaña en cada paso de mi día. Desde la
+                    primera nota que aprendí a tocar hasta los acordes complejos
+                    que forman las canciones que amo, la guitarra eléctrica se
+                    ha convertido en una extensión de mí mismo.
+                </p>
+            </div>
+        </div>
+        <div class="slider-container">
+            <div class="slider-track">
+                {
+                    multimedia.map((media) => (
+                        <div class="slide">
+                            {media.type === "img" ? (
+                                <img src={media.src} alt="" />
+                            ) : (
+                                <video src={media.src} autoplay loop muted />
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+            <div class="slider-track">
+                {
+                    multimedia.map((media) => (
+                        <div class="slide">
+                            {media.type === "img" ? (
+                                <img src={media.src} alt="" />
+                            ) : (
+                                <video src={media.src} autoplay loop muted />
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+    <div class="flex gap-5 px-10 relative">
+        <a href="https://www.instagram.com/trovador.rock/" target="_blank">
+            <img
+                class="rounded-full w-[80px] h-[80px] absolute top-0 left-0 -rotate-12 border-2 border-red-800"
+                src="https://yt3.googleusercontent.com/oxhvCtJFim1gZnfWVF3JSvqiA7vChkk0NQfg5Cms0CUy7eZuQqXuY9O2QF3WHc5jiqkqn2ba0A=s160-c-k-c0x00ffffff-no-rj"
+                alt=""
+            />
+        </a>
+        <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/artist/6bkClBMJd4qKxJp0J5vHsz?utm_source=generator"
+            width="50%"
+            height="400"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+
+        <div class="space-y-5">
+            <p class="text-white font-kodeBold w-[450px] text-balance">
+                Si amas la música tanto como yo, tenemos mucho en común. Tengo
+                una playlist en Spotify donde comparto los temas que me
+                inspiran.
+            </p>
+            <p class="text-white font-kodeBold w-[450px] text-balance">
+                En mi canal de YouTube comparto algunos de los proyectos
+                musicales en los que estoy involucrado, ya sea como solista o
+                junto a mi banda, <span class="text-orange-600">Trovador</span>.
+            </p>
+            <div id="musicLinks" class="flex flex-col gap-5">
+                <a
+                    target="_blank"
+                    href="https://www.instagram.com/trovador.rock/"
+                >
+                    <Icon name="FaInstagram" size={24} />
+                    Trovador.Rock
+                </a>
+                <a href="https://www.youtube.com/c/DagerMusic">
+                    <Icon name="FaYoutube" size={24} />
+                    Dager Music
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #musicLinks a {
+        font-family: "Arial", sans-serif;
+        text-decoration: none; /* Quitar el subrayado */
+        color: #4a4a4a; /* Gris oscuro para el texto */
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+        display: inline-block; /* Para padding alrededor */
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #musicLinks a:hover {
+        background: #6b21a8; /* Fondo púrpura al pasar el cursor */
+        color: #ffffff; /* Texto blanco */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        transform: scale(1.05); /* Ligero zoom */
+    }
+
+    #musicLinks a:first-child {
+        background: linear-gradient(to right, #be3d30, #571b16);
+        color: white;
+    }
+
+    #musicLinks a:first-child:hover {
+        background: linear-gradient(to right, #940f03, #5e1610);
+    }
+
+    #musicLinks a:last-child {
+        background: linear-gradient(to right, #6b21a8, #4c1d95);
+        color: white;
+    }
+
+    #musicLinks a:last-child:hover {
+        background: linear-gradient(to right, #531789, #3b106d);
+    }
+
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .slider-container:hover .slider-track {
+        animation-play-state: paused;
+        -webkit-animation-play-state: paused;
+    }
+
+    /* Track que contiene las imágenes/videos */
+    .slider-track {
+        display: flex;
+        gap: 16px;
+        animation: scroll 10s linear infinite;
+        -webkit-animation: scroll 10s linear infinite;
+        width: calc(200px * 14);
+    }
+
+    /* Elementos del slider */
+    .slide {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border: 2px solid theme("colors.purple.400");
+        border-radius: 10px;
+    }
+
+    .slide img,
+    .slide video {
+        width: 100%;
+        height: 100%;
+        border-radius: 9px;
+    }
+
+    @keyframes scroll {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        100% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+    }
+</style>

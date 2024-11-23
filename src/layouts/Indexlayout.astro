@@ -1,0 +1,52 @@
+---
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import Pancito from "@components/Pancito.astro";
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="/css/baseStyles.css" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Dot Dager</title>
+	</head>
+	<body>
+		<Header />
+		<main class="relative">
+			<slot />
+		</main>
+		<Footer />
+		<div id="pepinoLayer" class="hidden"></div>
+		<script src="/scripts/tiktok.js" is:inline/>
+		<script src="/scripts/soundBar.js" is:inline/>
+		<script src="/scripts/corazones.js" is:inline/>
+
+		<!-- <iframe title="Lumber Jack Game" src="https://tbot.xyz/lumber/" width="600" height="1200"></iframe>  -->
+	</body>
+</html>
+
+<style>
+	#pepinoLayer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 9999;
+		overflow: hidden;
+	}
+
+	
+</style>
+
+<script>
+	import iniciarLluvia from '../scripts/pepino.js';
+
+    const boton = document.getElementById("pepinoButton");
+    boton.addEventListener("click", iniciarLluvia);
+</script>

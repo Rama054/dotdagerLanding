@@ -1,0 +1,60 @@
+---
+import Title from "./Title.astro";
+import Icon from "./Icon";
+const redesSociales = [
+    {
+        name: "Github",
+        icon: "FaGithub",
+        url: "https://github.com/MarianoVilla",
+    },
+    {
+        name: "Youtube",
+        icon: "FaYoutube",
+        url: "https://www.youtube.com/@DotDager",
+    },
+    {
+        name: "Instagram",
+        icon: "FaInstagram",
+        url: "https://www.instagram.com/dager.32/",
+    },
+    {
+        name: "Linkedin",
+        icon: "FaLinkedin",
+        url: "https://www.linkedin.com/in/mariano-luis-villa/?locale=en_US",
+    },
+    {
+        name: "Twitch",
+        icon: "FaTwitch",
+        url: "https://www.twitch.tv/dagerxiv",
+    },
+    {
+        name: "Discord",
+        icon: "FaDiscord",
+        url: "https://discord.gg/4NFk6TamAB",
+    }
+];
+---
+
+<footer class="py-5 bg-gray-700 ">
+    <div class="max-w-container mx-auto flex justify-between">
+        <div class="flex flex-col">
+            <Title size={32} />
+            <p class="text-white text-sm font-kodeRegular">
+                Este es un logo, pero es mío.
+            </p>
+        </div>
+        <div class="flex gap-3 items-center text-white">
+            {
+                redesSociales.map((red) => (
+                    <a href={red.url} target="_blank" rel="noopener noreferrer">
+                        <Icon
+                            name={red.icon}
+                            size={32}
+                            className="hover:text-purple-500"
+                        />
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</footer>

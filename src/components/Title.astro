@@ -1,0 +1,33 @@
+---
+const { size = 128 } = Astro.props;
+---
+
+
+<div class="relative uppercase">
+    <h1 class="font-kodeBold" style={`font-size: ${size}px; line-height: ${size*0.9}px;`} id="ewewewew">
+        <p>Dot</p> Dager.
+    </h1>
+    <h1 class="font-kodeBold" style={`font-size: ${size}px; line-height: ${size*0.9}px;`} id="ewewewe">
+        <p>Dot</p> Dager.
+    </h1>
+</div>
+
+<style>
+     #ewewewew {
+        position: absolute;
+        transform: skewX(-5deg);
+        z-index: 1;
+        color: #9b26b6; /* Color de la sombra o contorno */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra difusa */
+    }
+
+    /* Texto superior con más efecto de profundidad */
+    #ewewewe {
+        transform: skewX(-5deg) translate(5px, -5px);
+        color: rgb(106, 6, 146); /* Color vibrante */
+        z-index: 2; /* Asegura que el texto se superponga correctamente */
+        text-shadow:
+            -2px -2px 5px rgba(0, 0, 0, 0.2),
+            2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra con profundidad */
+    }
+</style>

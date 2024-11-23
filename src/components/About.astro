@@ -1,0 +1,100 @@
+---
+import Icon from "./Icon";
+const redesSociales = [
+    {
+        name: "Github",
+        icon: "FaGithub",
+        url: "https://github.com/MarianoVilla",
+    },
+    {
+        name: "Youtube",
+        icon: "FaYoutube",
+        url: "https://www.youtube.com/@DotDager",
+    },
+    {
+        name: "Instagram",
+        icon: "FaInstagram",
+        url: "https://www.instagram.com/dager.32/",
+    },
+    {
+        name: "Linkedin",
+        icon: "FaLinkedin",
+        url: "https://www.linkedin.com/in/mariano-luis-villa/?locale=en_US",
+    },
+    {
+        name: "Twitch",
+        icon: "FaTwitch",
+        url: "https://www.twitch.tv/dagerxiv",
+    },
+];
+---
+
+<section class="bg-gray-700 relative py-12 overflow-hidden" id="about">
+    <div class="max-w-container mx-auto h-full">
+        <div class="text-white">
+            <div class="grid grid-cols-2 gap-9">
+                <div class="flex flex-wrap h-full">
+                    <img
+                        src="/img/mariano-villa.jpg"
+                        alt=""
+                        class="w-full object-cover rounded-lg mb-5 border-2 border-purple-500"
+                    />
+                    <div class="grid grid-cols-2 gap-5">
+                        <img
+                            src="/img/mariano-villa2.jpg"
+                            alt=""
+                            class="w-full h-full object-cover rounded-lg border-2 border-purple-500"
+                        />
+                        <img
+                            src="/img/mariano-villa3.jpg"
+                            alt=""
+                            class="w-full h-full object-cover rounded-lg border-2 border-purple-500"
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center space-y-5">
+                    <p class="text-lg font-kodeRegular text-muted">
+                        //Me llamo <span class="text-purple-400 font-bold"
+                            >Mariano Villa</span
+                        >, pero me dicen Dot Dager.
+                    </p>
+                    <h3 class="relative font-kodeBold text-3xl text-white">
+                        {"<"}SobreMi{">"}
+                    </h3>
+
+                    <p class="text-lg font-kodeRegular pl-5">
+                        Youtuber de día, catador de pepinos de noche
+                    </p>
+                    <p class="text-lg font-kodeRegular pl-5 text-balance">
+                        Soy programador senior full-stack y enseño algo de
+                        codigo por mi canal de YouTube, pero sobre todo, trato de hacerte reír
+                        con chistes de mierda que ni los gatos los entienden.
+                    </p>
+
+                    <div class="flex gap-5 items-center pl-5">
+                        <div class="flex gap-5 items-center">
+                            {
+                                redesSociales.map((red) => (
+                                    <a
+                                        href={red.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Icon
+                                            name={red.icon}
+                                            size={32}
+                                            className="hover:text-purple-500"
+                                        />
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                    <p class="relative font-kodeBold text-3xl text-white">
+                        {"</"}SobreMi{">"}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

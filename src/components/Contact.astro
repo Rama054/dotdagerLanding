@@ -1,0 +1,68 @@
+---
+import Icon from "./Icon";
+const redesSociales = [
+    {
+        name: "Github",
+        icon: "FaGithub",
+        url: "https://github.com/MarianoVilla",
+    },
+    {
+        name: "Youtube",
+        icon: "FaYoutube",
+        url: "https://www.youtube.com/@DotDager",
+    },
+    {
+        name: "Instagram",
+        icon: "FaInstagram",
+        url: "https://www.instagram.com/dager.32/",
+    },
+    {
+        name: "Linkedin",
+        icon: "FaLinkedin",
+        url: "https://www.linkedin.com/in/mariano-luis-villa/?locale=en_US",
+    },
+    {
+        name: "Twitch",
+        icon: "FaTwitch",
+        url: "https://www.twitch.tv/dagerxiv",
+    },
+];
+---
+
+<section
+    class="bg-[url('/img/escritorio.png')] bg-no-repeat bg-cover relative py-12 overflow-hidden"
+    id="about"
+>
+    <div class="max-w-container mx-auto h-full">
+        <h3 class="relative font-kodeBold text-3xl text-white">
+            {"<"}Un poco sobre mí{">"}
+        </h3>
+        <div>
+            <p>
+                
+            </p>
+            <div class="flex gap-5 items-center pl-5">
+                <div class="flex gap-3 items-center text-white">
+                    {
+                        redesSociales.map((red) => (
+                            <a
+                                href={red.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Icon
+                                    name={red.icon}
+                                    size={32}
+                                    className="hover:text-purple-500"
+                                />
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+        <h3 class="relative font-kodeBold text-3xl text-white">
+            {"</"}Un poco sobre mí{">"}
+        </h3>
+    </div>
+</section>

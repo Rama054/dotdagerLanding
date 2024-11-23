@@ -1,0 +1,133 @@
+---
+import Icon from "./Icon";
+---
+
+<div
+    class="fixed top-2 left-2 z-50 select-none cursor-pointer text-xl"
+    id="pancito"
+>
+    🥖
+    <div
+        id="tooltip"
+        class="bg-white text-black p-1 text-base rounded-lg font-kodeRegular shadow-lg hidden absolute top-0 w-[300px] left-[120%]"
+    >
+        Esto es un pan, pero es mío.
+    </div>
+</div>
+
+<!-- Dialogo que aparece de debajo del pan -->
+<div
+    id="dialogo"
+    class="absolute hidden bg-white shadow-lg rounded-lg p-2 z-[99999] left-4 top-12 font-kodeRegular"
+>
+    <button
+        id="closeDialog"
+        class="absolute top-2 right-2 bg-blue-100 rounded-full p-1"
+    >
+        <Icon name="PiXBold" size={16} />
+    </button>
+    <h2 class="text-lg font-bold">Don Pancho</h2>
+    <p class="text-balance" id="dialogText">
+        ¡Buen trabajo! Aquí tienes tu premio.
+    </p>
+</div>
+
+<style>
+    /* Mensaje que aparecerá al hacer hover */
+    #pancito:hover #tooltip {
+        display: block; /* Muestra el mensaje cuando se hace hover */
+    }
+
+    /* Hacer que el mensaje se vea más suave al aparecer */
+    #pancito:hover #tooltip {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const dialogos = [
+        "¡No me toques sin decir por favor!",
+        "¡Soy un pan con carácter, no me toques tan a la ligera!",
+        "Ay, que me haces cosquillas con esas manos. Al menos invitame a un cafe antes!",
+        "¡No me toques así, que me deshago de tanto estrés!",
+        "Un pan no puede tener esta presión social... ¡Déjame en paz!",
+        "Sigue tocandome y te convierto en pan rallado!!",
+    ];
+
+    const pancito = document.getElementById("pancito");
+    const dialogo = document.getElementById("dialogo");
+    const tooltip = document.getElementById("tooltip");
+    const closeDialog = document.getElementById("closeDialog");
+    const textoDialogo = document.getElementById("dialogText");
+    let index = -1;
+
+    function cierreDialogo() {
+        // Animación de cierre
+        dialogo.classList.add("scale-95", "opacity-0");
+        setTimeout(() => {
+            dialogo.classList.add("hidden");
+            dialogo.classList.remove("scale-95", "opacity-0");
+        }, 300); // Tiempo de duración de la animación
+    }
+
+    function abrirDialogo() {
+        // Mostramos el diálogo con animación
+        dialogo.classList.remove("hidden");
+        dialogo.classList.add("transition-all", "opacity-0", "scale-95");
+        setTimeout(() => {
+            dialogo.classList.remove("scale-95", "opacity-0");
+            dialogo.classList.add("scale-100", "opacity-100");
+        }, 10); // Le damos un pequeño delay para que inicie la animación
+    }
+
+    pancito.addEventListener("click", () => {
+        index++;
+
+        if(tooltip){
+            tooltip.remove();
+        }
+
+        if(index === 10){
+            abrirDialogo();
+            textoDialogo.textContent = "¡Ya basta! ¡Deja de tocarme!";
+            return;
+        }
+
+        if(index === 15){
+            pancito.classList.add("animate-spin")
+        }
+        if(index === 20){
+            pancito.style.scale = "2";
+        }
+        if(index === 21){
+            pancito.style.scale = "3";
+        }
+        if(index === 23){
+            pancito.style.scale = "4";
+        }
+        if(index === 25){
+            abrirDialogo();
+            textoDialogo.textContent = "Me canse! Ahora vas a ver!";
+            setTimeout(() => {
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            }, 3000);
+            return;
+        }
+
+
+        if (index > dialogos.length - 1) {
+            if (!dialogo.classList.contains("hidden")){
+                cierreDialogo();
+                return;
+            }
+        } else {
+            abrirDialogo();
+            textoDialogo.textContent = dialogos[index];
+        }
+    });
+
+    closeDialog.addEventListener("click", () => {
+        index = 0;
+        cierreDialogo();
+    });
+</script>

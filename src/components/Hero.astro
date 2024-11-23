@@ -1,0 +1,138 @@
+---
+import Pancito from "./Pancito.astro";
+import Title from "./Title.astro";
+
+
+---
+<Pancito/>
+<section class="bg-gray-900 h-[90vh] relative overflow-hidden" id="hero">
+    <div class="max-w-container mx-auto h-full flex items-center">
+        <div class="max-w-[600px] text-white relative">
+            <div class="z-[2] relative">
+                <p class="text-3xl font-kodeBold pl-2 mb-5">Bienvenido a</p>
+                <Title/>
+                <div class="mt-5 text-xl font-kodeRegular">
+                    <p>Soy Mariano Villa, pero vos no.</p>
+                    <p>
+                        Full-stack senior y contador serial de chistes de
+                        mierda.
+                    </p>
+                </div>
+            </div>
+            <div class="circle" id="owo"></div>
+            <div class="circle" id="uwu"></div>
+            <div class="circle" id="ewe"></div>
+        </div>
+
+        <div id="primaryPicture">
+            <div id="primero"></div>
+            <div id="segundo"></div>
+            <!-- <img src="./img/profile.png" alt="" /> -->
+            <canvas id="canvas" width="550" height="550"></canvas>
+        </div>
+    </div>
+</section>
+
+<style>
+   
+    .circle {
+        position: absolute;
+        background-color: theme("colors.primary");
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    #owo {
+        top: 0;
+        left: 0;
+        height: 100px;
+        width: 100px;
+        animation: moviment 5s infinite;
+    }
+
+    #uwu {
+        bottom: 0;
+        right: 0;
+        height: 150px;
+        width: 150px;
+        animation: moviment 5s infinite;
+    }
+
+    #ewe {
+        bottom: 0;
+        left: -200px;
+        height: 200px;
+        width: 200px;
+        animation: moviment 6s infinite;
+    }
+
+    @keyframes moviment {
+        0% {
+            scale: 0.5;
+        }
+        50% {
+            scale: 1;
+        }
+        100% {
+            scale: 0.5;
+        }
+    }
+
+    #primaryPicture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        gap: 10px;
+        rotate: 45deg;
+        transform: translate(-200px, -10%);
+        animation: slide 0.5s ease-in-out;
+    }
+
+    @keyframes slide {
+        from {
+            transform: translate(-200px, -100%);
+        }
+        to {
+            transform: translate(-200px, -10%);
+        }
+    }
+
+    #primaryPicture #primero {
+        overflow: hidden;
+        background-color: theme("colors.primary");
+        height: 600px;
+        width: 100px;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+        z-index: 0;
+    }
+
+    #primaryPicture #segundo {
+        overflow: hidden;
+        background-color: theme("colors.primary");
+        height: 900px;
+        width: 500px;
+        border-bottom-left-radius: 250px;
+        border-bottom-right-radius: 250px;
+        z-index: 0;
+    }
+
+    #primaryPicture img {
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        width: 450px;
+        z-index: 1;
+        border-radius: 50%;
+        rotate: -45deg;
+    }
+
+    #canvas {
+        position: absolute;
+        rotate: -45deg;
+        z-index: 1;
+        bottom: -25px;
+        right: -25px;
+    }
+</style>

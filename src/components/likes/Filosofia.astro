@@ -1,0 +1,290 @@
+---
+
+---
+
+<div class="pl-10 py-5">
+    <div class="flex gap-5 items-center px-10 py-5">
+        <div class="quote-container">
+            <p id="title">Una frase inspiradora para empezar el dia</p>
+            <p id="quote">Haz clic en el botón para ver una frase.</p>
+            <p id="author"></p>
+        </div>
+        <div class="">
+            <h5 class="text-white font-kodeBold text-2xl mb-5 relative">
+                {"`${"}<span class="text-purple-400">Filosofia</span>{"}`"}
+            </h5>
+            <div class="space-y-5 relative">
+                <p class="text-muted font-kodeBold">
+                    //¿Y si... nada tiene sentido?
+                </p>
+                <p class="text-white font-kodeBold w-[450px] text-balance">
+                    De vez en cuando me gusta preguntar cosas profundas como:
+                    "¿Y si todo esto es solo un sueño?" La filosofía me da
+                    excusas para pensar que tal vez sí, todo es solo un sueño...
+                    o un mal sueño.
+                </p>
+                <button onclick="getRandomQuote()" id="quoteButton"
+                    >Mostrar Frase</button
+                >
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #quoteButton {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #99148c; /* Violeta oscuro */
+        color: #fff; /* Texto blanco */
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 4px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-family: "KodeBold", sans-serif;
+    }
+
+    #quoteButton:hover {
+        background-color: #b33aa6;
+        color: #f9f2ff;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .quote-container {
+        background-image: url("/img/paper.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        height: 100%;
+        min-height: 250px;
+        font-family: Allura;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        z-index: 20;
+    }
+
+    #title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    #quote,
+    #author {
+        font-size: 1.5rem;
+    }
+
+    #quote {
+        text-wrap: balance;
+    }
+</style>
+
+<script>
+    const frases = [
+        {
+            quote: "La vida sin examen no vale la pena ser vivida.",
+            author: "Sócrates",
+        },
+        { quote: "Pienso, luego existo.", author: "René Descartes" },
+        {
+            quote: "La felicidad depende de nosotros mismos.",
+            author: "Aristóteles",
+        },
+        {
+            quote: "El hombre está condenado a ser libre.",
+            author: "Jean-Paul Sartre",
+        },
+        {
+            quote: "Conocer a los demás es inteligencia, conocerse a uno mismo es verdadera sabiduría.",
+            author: "Lao Tse",
+        },
+        {
+            quote: "El hombre es la medida de todas las cosas.",
+            author: "Protágoras",
+        },
+        { quote: "Solo sé que no sé nada.", author: "Sócrates" },
+        {
+            quote: "La vida no se mide por las veces que respiras, sino por los momentos que te dejan sin aliento.",
+            author: "George Carlin",
+        },
+        {
+            quote: "El fin de la educación es el conocimiento, no la memorización.",
+            author: "John Dewey",
+        },
+        {
+            quote: "La verdad os hará libres, pero primero os dejará en un estado de confusión.",
+            author: "Karl Popper",
+        },
+        {
+            quote: "No hay camino para la paz, la paz es el camino.",
+            author: "Mahatma Gandhi",
+        },
+        {
+            quote: "La duda es el principio de la sabiduría.",
+            author: "Aristóteles",
+        },
+        {
+            quote: "El hombre no es nada más que el producto de sus pensamientos.",
+            author: "Mahatma Gandhi",
+        },
+        {
+            quote: "La vida es lo que pasa mientras estás ocupado haciendo otros planes.",
+            author: "John Lennon",
+        },
+        { quote: "El conocimiento es poder.", author: "Francis Bacon" },
+        {
+            quote: "La mayor parte de nuestra felicidad o infelicidad depende de nuestra disposición y no de nuestras circunstancias.",
+            author: "Martha Washington",
+        },
+        {
+            quote: "La libertad es el derecho a hacer lo que no perjudique a los demás.",
+            author: "Immanuel Kant",
+        },
+        {
+            quote: "El hombre es un lobo para el hombre.",
+            author: "Thomas Hobbes",
+        },
+        {
+            quote: "La única manera de hacer un gran trabajo es amar lo que haces.",
+            author: "Steve Jobs",
+        },
+        { quote: "El placer y el dolor son inseparables.", author: "Epicurio" },
+        {
+            quote: "Lo importante es no dejar de cuestionar.",
+            author: "Albert Einstein",
+        },
+        {
+            quote: "La vida sin amor es como un árbol sin flores ni frutos.",
+            author: "Khalil Gibran",
+        },
+        {
+            quote: "Lo que sabemos es una gota, lo que ignoramos es un océano.",
+            author: "Isaac Newton",
+        },
+        {
+            quote: "El hombre que no se alimenta de sus sueños envejece muy rápido.",
+            author: "Jean Paul",
+        },
+        {
+            quote: "El propósito de la vida es ser feliz.",
+            author: "Dalai Lama",
+        },
+        {
+            quote: "El sentido de la vida es encontrar tu don. El propósito de la vida es compartirlo.",
+            author: "Pablo Picasso",
+        },
+        {
+            quote: "La filosofía es el conocimiento de los hombres y el mundo, y el conocimiento de la verdad.",
+            author: "Hegel",
+        },
+        {
+            quote: "Lo que no me mata me hace más fuerte.",
+            author: "Friedrich Nietzsche",
+        },
+        {
+            quote: "La belleza está en los ojos del que mira.",
+            author: "Oscar Wilde",
+        },
+        {
+            quote: "El hombre es la medida de todas las cosas.",
+            author: "Protágoras",
+        },
+        {
+            quote: "Solo los muertos han visto el final de la guerra.",
+            author: "George Santayana",
+        },
+        {
+            quote: "La vida no es un problema que resolver, sino una realidad que experimentar.",
+            author: "Søren Kierkegaard",
+        },
+        {
+            quote: "No podemos enseñar nada a nadie, solo ayudarles a encontrarlo dentro de ellos mismos.",
+            author: "Galileo Galilei",
+        },
+        {
+            quote: "La mente es todo. Lo que piensas, en eso te conviertes.",
+            author: "Buda",
+        },
+        {
+            quote: "La amistad es un alma que habita en dos cuerpos; un corazón que habita en dos almas.",
+            author: "Aristóteles",
+        },
+        {
+            quote: "Sé el cambio que quieres ver en el mundo.",
+            author: "Mahatma Gandhi",
+        },
+        {
+            quote: "El hombre está condenado a ser libre.",
+            author: "Jean-Paul Sartre",
+        },
+        {
+            quote: "El hombre es el único animal que tropieza dos veces con la misma piedra.",
+            author: "Thomas Jefferson",
+        },
+        {
+            quote: "La vida es demasiado importante para tomársela en serio.",
+            author: "Oscar Wilde",
+        },
+        {
+            quote: "No hay mayor felicidad que la paz interior.",
+            author: "Buda",
+        },
+        {
+            quote: "El amor es la fuerza más poderosa del universo.",
+            author: "Mahatma Gandhi",
+        },
+        {
+            quote: "La filosofía es la ciencia que busca el conocimiento de la verdad.",
+            author: "Aristóteles",
+        },
+        { quote: "Pienso, luego existo.", author: "René Descartes" },
+        {
+            quote: "La vida es como andar en bicicleta. Para mantener el equilibrio, debes seguir adelante.",
+            author: "Albert Einstein",
+        },
+        {
+            quote: "La libertad no consiste en hacer lo que se quiere, sino en hacer lo que se debe.",
+            author: "Jean-Jacques Rousseau",
+        },
+        {
+            quote: "El hombre es la medida de todas las cosas.",
+            author: "Protágoras",
+        },
+        {
+            quote: "El miedo es el camino hacia el lado oscuro.",
+            author: "Yoda",
+        },
+    ];
+
+    const typeText = (element, text, delay = 50) => {
+        element.textContent = ""; // Limpiar texto previo
+        text.split("").forEach((char, index) => {
+            setTimeout(() => {
+                element.textContent += char; // Agregar carácter
+            }, index * delay);
+        });
+    };
+
+    function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * frases.length);
+        const randomQuote = frases[randomIndex];
+
+        const quoteElement = document.getElementById("quote");
+        const authorElement = document.getElementById("author");
+
+        // Animar la escritura del texto
+        typeText(quoteElement, randomQuote.quote);
+        typeText(authorElement, `- ${randomQuote.author}`);
+    }
+
+    // Generar una cita al cargar la página
+    getRandomQuote();
+
+    // Asociar el botón con la función
+    const boton = document.getElementById("quoteButton");
+    boton.addEventListener("click", getRandomQuote);
+</script>

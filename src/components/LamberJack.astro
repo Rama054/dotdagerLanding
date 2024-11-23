@@ -1,0 +1,166 @@
+---
+//bg-[url('https://img.itch.zone/aW1nLzI4NzA4NzguZ2lm/original/NAbKJJ.gif')] h-screen bg-no-repeat bg-cover
+---
+
+<section class="bg-sky-300 py-12 overflow-hidden relative" id="lumberjack">
+    <div id="lamberSection" class="absolute inset-0 z-0"></div>
+    <!-- Contenedor de las nubes -->
+    <div class="max-w-container mx-auto h-full z-10 relative">
+        <h3 class="font-kodeBold text-3xl text-white relative z-20">
+            {"<"}MisJuegos{">"}
+        </h3>
+
+        <div
+            class="pl-10 py-10 relative z-20 flex gap-5 justify-center items-center"
+        >
+            <div class="space-y-5">
+                <p class="font-kodeMedium text-muted">
+                    //Uno de los juegos que más rivalidad ha creado en mi vida
+                    es el juego de <span class="text-purple-400 font-bold"
+                        >Lumber Jack</span
+                    >.
+                </p>
+                <p class="font-kodeMedium">
+                    Aun no lo encontraste? Está escondido acá en la página,
+                    esperando a que te atrevas a probar suerte.
+                </p>
+                <div class="relative">
+                    <button id="pista">Queres una pista?</button>
+                    <dialog id="dialogoPista" class="p-4 bg-white shadow-lg rounded-lg text-center">
+                        <p class="w-3/4 mx-auto font-kodeMedium">Para ser un gran leñador, primero hay que pasar por un pepino</p>
+                        <button id="closeDialogPista" class="bg-purple-500 text-white p-2 rounded mt-4">Cerrar</button>
+                    </dialog>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="relative">
+                    <img
+                        src="https://img.itch.zone/aW1nLzI4NzA4NzguZ2lm/original/NAbKJJ.gif"
+                        alt="Imagen"
+                        class="rounded-xl border select-none"
+                    />
+                    <a
+                        class="absolute -bottom-5 -right-5 z-10 text-4xl"
+                        href="/game">🥒</a
+                    >
+                </div>
+
+                <div
+                    class="absolute top-2/4 left-0 -translate-y-2/4 translate-x-3/4"
+                >
+                    <p class="text-center font-kodeBold text-xl text-[#4d4d4d]">
+                        High Score:
+                    </p>
+                    <span id="score_value">473</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="font-kodeBold text-3xl text-white relative z-20">
+            {"</"}MisJuegos{">"}
+        </h3>
+        
+    </div>
+</section>
+
+
+
+<style>
+    #score_value {
+        font-size: 68px;
+        font-family: Charter;
+        color: #4d4d4d;
+    }
+
+    #score_value::after {
+        content: "";
+        background-image: url("/img/log.svg");
+        background-size: 64px 64px;
+        width: 64px;
+        height: 64px;
+        margin: 17px 0 0 -6px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+
+    #pista{
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #99148c; /* Violeta oscuro */
+        color: #fff; /* Texto blanco */
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 4px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-family: "KodeBold", sans-serif;
+    }
+    
+    #pista:hover{
+        background-color: #610c58;
+        color: #f9f2ff;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+<script>
+    const lamberSection = document.getElementById("lamberSection");
+    const animationDuration = 20000;
+    const cloudFrequency = 3000;
+
+    const getRandom = (min: number, max: number) =>
+        Math.floor(Math.random() * (max - min + 1)) + min;
+
+    // Crear nubes
+    function createClouds(offset = 50) {
+        const cloud = document.createElement("div");
+        cloud.classList.add("cloud");
+        cloud.style.top = `${offset + getRandom(10, 50)}px`;
+        cloud.style.animationDuration = `${animationDuration}ms`;
+
+        // Generar sub-nubes
+        Array.from({ length: 3 }).forEach((_, index) => {
+            const miniCloud = document.createElement("div");
+            miniCloud.classList.add("minicloud");
+            miniCloud.style.width = `${getRandom(50, 150)}px`;
+            miniCloud.style.left = `${getRandom(50, 200)}px`;
+            miniCloud.style.top = `${index * 15}px`;
+            cloud.appendChild(miniCloud);
+        });
+
+        lamberSection.appendChild(cloud);
+
+        setTimeout(() => {
+            cloud.remove();
+        }, animationDuration);
+    }
+
+    createClouds(50);
+    createClouds(150);
+
+    setInterval(() => createClouds(50), cloudFrequency);
+    setInterval(() => createClouds(150), cloudFrequency);
+
+
+
+
+    const pancito = document.getElementById("pista");
+    const dialogo = document.getElementById("dialogoPista") as HTMLDialogElement;
+    const closeDialog = document.getElementById("closeDialogPista") as HTMLDialogElement;
+
+    pancito.addEventListener("click", () => {
+        // Muestra el diálogo al hacer clic en el pan
+        dialogo.showModal();
+    });
+
+    closeDialog.addEventListener("click", () => {
+        // Cierra el diálogo al hacer clic en el botón "Cerrar"
+        dialogo.close();
+    });
+
+
+
+
+
+</script>

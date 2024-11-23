@@ -1,0 +1,56 @@
+---
+import Title from "./Title.astro";
+---
+
+<div
+    class="bg-gray-700 top-2 right-2/4 translate-x-2/4 z-50 shadow-lg w-[1200px] mx-auto fixed rounded-full"
+>
+    <header
+        class="max-w-container h-[86px] mx-auto p-3 flex justify-between items-center"
+    >
+        <nav
+            class="flex justify-between items-center w-full px-10 text-white font-kodeMedium"
+        >
+            <ul class="flex gap-5">
+                <li>
+                    <a href="#hero">Home</a>
+                </li>
+                <li>
+                    <a href="#about">Sobre mi</a>
+                </li>
+            </ul>
+            <a href="#hero">
+                <Title size={32} />
+            </a>
+            <ul class="flex gap-5">
+                <li>
+                    <a href="#likes">Mis Gustos</a>
+                </li>
+                <li>
+                    <a href="#lumberjack">LamberJack</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<script>
+    // Ajustar el comportamiento del click en los enlaces
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Obtener la altura del header
+            const headerHeight = document.querySelector("header").offsetHeight;
+
+            // Desplazar la página hacia la sección deseada
+            const targetId = this.getAttribute("href").substring(1); // Obtener el ID del destino
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - headerHeight, // Restar la altura del header
+                behavior: "smooth",
+            });
+        });
+    });
+</script>

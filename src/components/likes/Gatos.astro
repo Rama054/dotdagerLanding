@@ -1,0 +1,104 @@
+---
+import TikTok from "../TikTok.astro";
+---
+
+<div class="px-10 py-5">
+    <div class="flex gap-5 relative z-20">
+        <div id="paws"></div>
+        <div class="relative">
+            <TikTok />
+            <div id="point" class="w-full"></div>
+        </div>
+        <div
+            class="max-w-2xl flex flex-col items-start justify-center space-y-9 relative"
+        >
+            <h5 class="text-white font-kodeBold text-2xl mb-5 relative">
+                {"`${"}<span class="text-purple-400">Gatos</span>{"}`"}
+            </h5>
+            <div class="space-y-5 relative">
+                <p class="text-white font-kodeBold w-[450px] text-balance">
+                    Tengo un compañero incondicional que nunca se pierde una
+                    sesión de música: mi gato. Él es el verdadero DJ de la casa.
+                </p>
+                <p class="text-white font-kodeBold w-[450px] text-balance">
+                    Mi amor por los gatos no solo se queda en casa; también lo
+                    llevo al mundo del código. ¿Sabías que existe una página que
+                    combina lo mejor de ambos mundos?
+                </p>
+            </div>
+            <button>
+                <a href="https://http.cat/" target="_blank" id="catButton">
+                    Gatitos HTTP
+                </a>
+            </button>
+        </div>
+
+        <div class="absolute bottom-0 right-0">
+            <div class="flex items-end">
+                <img
+                    src="/img/cat.gif"
+                    alt=""
+                    class="relative top-4 w-[100px] z-20 cursor-pointer"
+                    id="playSoundButton"
+                />
+                <p class="select-none animate-bounce">🥒</p>
+            </div>
+            <video
+                src="/videos/gatito5.mp4"
+                autoplay
+                loop
+                muted
+                class="relative w-[300px] h-[450px] object-cover rounded-lg border-2 border-purple-400"
+            ></video>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("playSoundButton").addEventListener("click", () => {
+        var audio = new Audio("/sound/meow.mp3");
+        audio.volume = 0.5;
+        audio.play();
+    });
+
+    const pawsWallpaper = document.getElementById("paws");
+    for (let i = 0; i < 7; i++) {
+        const img = document.createElement("img");
+        img.src = "/img/paw.png";
+        img.alt = "paw";
+        img.className = "w-[50px] absolute opacity-40";
+        img.style.right = `${Math.floor(Math.random() * 46) + 25}%`; // Valores entre 25% y 70%
+        img.style.top = `${Math.floor(Math.random() * 81) + 10}%`; // Valores entre 10% y 80%
+        img.style.rotate = `${Math.floor(Math.random() * 360)}deg`; // Valores entre 0 y 360 grados
+        pawsWallpaper.appendChild(img);
+    }
+</script>
+
+<style>
+    #paws {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    #catButton {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #99148c; /* Violeta oscuro */
+        color: #fff; /* Texto blanco */
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 4px; 
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease; 
+        font-family: "KodeBold", sans-serif; 
+    }
+
+    #catButton:hover {
+        background-color: #b33aa6; 
+        color: #f9f2ff; 
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3); 
+    }
+</style>

@@ -1,0 +1,159 @@
+/* styles.css */
+@font-face {
+  font-family: 'KodeBold';
+  src: url('/fonts/KodeMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KodeMedium';
+  src: url('/fonts/KodeMono-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KodeRegular';
+  src: url('/fonts/KodeMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KodeSemibold';
+  src: url('/fonts/KodeMono-Semibold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Allura';
+  src: url('/fonts/Allura-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --widhtTikTok: 300px;
+  --heightTikTok: 500px;
+}
+
+.pepino {
+  position: absolute;
+  top: 0;
+  font-size: 24px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.video-gallery {
+  min-width: var(--widhtTikTok);
+  height: var(--heightTikTok);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: transform 1s ease-in-out;
+}
+
+.video-item {
+  width: 100%;
+  height: var(--heightTikTok);
+  width: var(--widhtTikTok);
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+
+
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  color: #ff4b5c;
+  opacity: 0;
+  transform: scale(0);
+  animation: rise 5s infinite ease-in-out;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+    top: 90%;
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    top: -100px;
+  }
+}
+
+/* Movimiento aleatorio */
+@keyframes disperse {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(var(--random-x), var(--random-y));
+  }
+}
+
+
+#lamberSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Por encima del fondo azul pero por debajo del texto */
+}
+
+
+.cloud {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  animation-name: moveCloud;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.minicloud {
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 25px;
+  position: absolute;
+}
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 85px!important;
+}

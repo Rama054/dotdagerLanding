@@ -1,0 +1,65 @@
+---
+import Gatos from "./likes/Gatos.astro";
+import Filosofia from "./likes/Filosofia.astro";
+import Musica from "./likes/Musica.astro";
+import Pepinos from "./likes/Pepinos.astro";
+//bg-gradient-to-b from-gray-800 from-85% to-blue-300 
+
+const positions = [
+  { "font-size": "80px", "top": "10%", "left": "10%", "rotate": "45deg" },
+  { "font-size": "100px", "top": "20%", "left": "30%", "rotate": "30deg" },
+  { "font-size": "90px", "top": "30%", "left": "50%", "rotate": "60deg" },
+  { "font-size": "85px", "top": "40%", "left": "70%", "rotate": "90deg" },
+  { "font-size": "95px", "top": "50%", "left": "10%", "rotate": "120deg" },
+  { "font-size": "70px", "top": "60%", "left": "90%", "rotate": "150deg" },
+  { "font-size": "75px", "top": "70%", "left": "20%", "rotate": "180deg" },
+  { "font-size": "60px", "top": "80%", "left": "40%", "rotate": "210deg" },
+  { "font-size": "90px", "top": "90%", "left": "60%", "rotate": "240deg" },
+  { "font-size": "80px", "top": "15%", "left": "80%", "rotate": "270deg" },
+  { "font-size": "95px", "top": "25%", "left": "10%", "rotate": "300deg" },
+  { "font-size": "85px", "top": "35%", "left": "30%", "rotate": "330deg" },
+  { "font-size": "70px", "top": "45%", "left": "50%", "rotate": "360deg" },
+  { "font-size": "100px", "top": "55%", "left": "70%", "rotate": "15deg" },
+  { "font-size": "75px", "top": "65%", "left": "10%", "rotate": "45deg" },
+  { "font-size": "60px", "top": "75%", "left": "90%", "rotate": "75deg" },
+  { "font-size": "90px", "top": "85%", "left": "20%", "rotate": "105deg" },
+  { "font-size": "70px", "top": "95%", "left": "40%", "rotate": "135deg" },
+  { "font-size": "100px", "top": "5%", "left": "50%", "rotate": "165deg" },
+  { "font-size": "80px", "top": "10%", "left": "70%", "rotate": "195deg" },
+  { "font-size": "90px", "top": "20%", "left": "15%", "rotate": "30deg" },
+  { "font-size": "85px", "top": "25%", "left": "35%", "rotate": "45deg" },
+  { "font-size": "100px", "top": "30%", "left": "55%", "rotate": "60deg" },
+  { "font-size": "70px", "top": "40%", "left": "75%", "rotate": "75deg" },
+  { "font-size": "95px", "top": "50%", "left": "20%", "rotate": "90deg" },
+  { "font-size": "80px", "top": "60%", "left": "40%", "rotate": "105deg" },
+  { "font-size": "75px", "top": "70%", "left": "60%", "rotate": "120deg" },
+  { "font-size": "85px", "top": "80%", "left": "80%", "rotate": "135deg" },
+  { "font-size": "100px", "top": "90%", "left": "50%", "rotate": "165deg" }
+]
+
+
+---
+
+<section class="bg-gray-800 relative py-12 overflow-hidden" id="likes"> 
+    <div class="opacity-10">
+        {
+            positions.map((position, index) => (
+                <p class="absolute select-none" style={position}>🥒</p>
+            ))
+        }
+    </div>
+
+
+    <div class="max-w-container mx-auto h-full">
+        <h3 class="relative font-kodeBold text-3xl text-white">
+            {"<"}MisGustos{">"}
+        </h3>
+        <Gatos />
+        <Musica />
+        <Filosofia />
+        <Pepinos />
+        <p class="relative font-kodeBold text-3xl text-white">
+            {"</"}MisGustos{">"}
+        </p>
+    </div>
+</section>

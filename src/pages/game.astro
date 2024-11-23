@@ -1,0 +1,47 @@
+---
+import Icon from "@components/Icon"
+---
+
+<section
+    class="bg-[url('https://img.itch.zone/aW1nLzI4NzA4NzguZ2lm/original/NAbKJJ.gif')] bg-no-repeat bg-cover h-screen overflow-hidden"
+>
+    <a href="/" id="volverButton">
+        <Icon name="PiArrowLeft" size={24}/>
+        Voler a la pagina
+    </a>
+    <div class="flex items-center h-full left-[15%] relative">
+        <iframe
+            title="Lumber Jack Game"
+            src="https://tbot.xyz/lumber/"
+            width="600"
+            height="90%"></iframe>
+    </div>
+</section>
+
+<style>
+    #volverButton{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #99148c; /* Violeta oscuro */
+        color: #fff; /* Texto blanco */
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 4px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-family: "KodeBold", sans-serif;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    #volverButton:hover{
+        background-color: #610c58;
+        color: #f9f2ff;
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+</style>
